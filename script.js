@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const editButton = document.createElement('button');
           editButton.textContent = 'Edit';
           editButton.style.backgroundColor = 'blue';
-          editButton.style.marginLeft = 'auto'; // Pushes the edit button to the right
+          editButton.style.marginLeft = 'auto';
           editButton.onclick = () => {
             nameInput.value = employee.name;
             ageInput.value = employee.age;
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const deleteButton = document.createElement('button');
           deleteButton.textContent = 'Delete';
           deleteButton.style.backgroundColor = 'red';
-          deleteButton.style.marginLeft = '10px'; // Adds some space between the edit and delete buttons
+          deleteButton.style.marginLeft = '10px'; 
           deleteButton.onclick = () => {
             deleteEmployee(employee.id);
           };
