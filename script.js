@@ -47,10 +47,18 @@ document.addEventListener('DOMContentLoaded', () => {
         employeesList.innerHTML = '';
         employees.forEach((employee) => {
           const li = document.createElement('li');
-          li.textContent = `${employee.name} - ${employee.age} - ${employee.position} - ${employee.gmail} - ${employee.experience}`;
+          li.style.display = 'flex';
+          li.style.alignItems = 'center';
+          li.style.padding = '10px';
+          li.style.borderBottom = '1px solid #ccc';
+    
+          const employeeInfo = document.createElement('span');
+          employeeInfo.textContent = `${employee.name} - ${employee.age} - ${employee.position} - ${employee.gmail} - ${employee.experience}`;
+          
           const editButton = document.createElement('button');
           editButton.textContent = 'Edit';
           editButton.style.backgroundColor = 'blue';
+          editButton.style.marginLeft = 'auto'; // Pushes the edit button to the right
           editButton.onclick = () => {
             nameInput.value = employee.name;
             ageInput.value = employee.age;
@@ -60,12 +68,16 @@ document.addEventListener('DOMContentLoaded', () => {
             isEditing = true;
             currentIndex = employee.id;
           };
+    
           const deleteButton = document.createElement('button');
           deleteButton.textContent = 'Delete';
           deleteButton.style.backgroundColor = 'red';
+          deleteButton.style.marginLeft = '10px'; // Adds some space between the edit and delete buttons
           deleteButton.onclick = () => {
             deleteEmployee(employee.id);
           };
+    
+          li.appendChild(employeeInfo);
           li.appendChild(editButton);
           li.appendChild(deleteButton);
           employeesList.appendChild(li);
@@ -95,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
           editEmployee(currentIndex, name, age, position, gmail, experience);
           isEditing = false;
           currentIndex = null;
-        } else {
+        } else { 
           addEmployee(name, age, position, gmail, experience);
         }
         nameInput.value = '';
@@ -105,7 +117,6 @@ document.addEventListener('DOMContentLoaded', () => {
         experienceInput.value = '';
       }
     });
-  
     renderEmployees();
   });
   
